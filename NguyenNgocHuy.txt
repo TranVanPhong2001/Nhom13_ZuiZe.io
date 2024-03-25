@@ -1,0 +1,23 @@
+Step 1
+
+git config --global user.name "NgocHuy"
+git config --global user.email "ngochuy0962@gmail.com"
+
+git init
+git remote add origin https://github.com/TranVanPhong2001/Nhom13_ZuiZe.io.git
+
+step 2
+
+git checkout -b NguyenNgocHuy
+
+step 3
+
+git add "c"
+git commit -m"demmo"
+git push origin NguyenNgocHuy
+
+step 4
+
+
+
+
