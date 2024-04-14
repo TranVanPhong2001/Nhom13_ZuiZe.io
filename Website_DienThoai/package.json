@@ -1,0 +1,38 @@
+{
+  "name": "website_dienthoai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --inspect src/index.js",
+    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TranVanPhong2001/Website_DienThoai.git"
+  },
+  "keywords": [
+    "website_dienthoai",
+    "nodejs"
+  ],
+  "author": "phong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TranVanPhong2001/Website_DienThoai/issues"
+  },
+  "homepage": "https://github.com/TranVanPhong2001/Website_DienThoai#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.3.0",
+    "mongoose-paginate-v2": "^1.8.0",
+    "nodemon": "^3.1.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "node-sass": "^9.0.0"
+  }
+}

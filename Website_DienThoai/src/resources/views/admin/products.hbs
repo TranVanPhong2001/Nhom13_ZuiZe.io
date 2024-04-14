@@ -1,0 +1,93 @@
+{{!< admin}}
+
+    
+    <main>                   
+        <div class="container-fluid px-4">
+                        <h1 class="mt-4"></h1>
+                        
+                        
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Danh sách sản phẩmm
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Tên</th>
+                                            <th scope="col">Loại</th>
+                                            <th scope="col">Mô tả</th>
+                                            <th scope="col">Giá</th>
+                                            <th scope="col" >Img</th>
+                                            <th scope="col">Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each dienthoais}}
+                                        <tr>
+                                            <th scope="row">{{sum @index 1}}</th>
+                                            <td>{{this.name}}</td>
+                                            <td>{{this.loai}}</td>
+                                            <td>{{this.mota}}</td>
+                                            <td>{{this.gia}}</td>
+                                            <td>{{this.img}}</td>
+                                            <td>
+                                                <a href="/admin/products/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+                                                <a href="#" class="btn btn-link" onclick="confirmDelete(event)">Xóa</a>
+                                            </td>      
+                                        </tr>
+                                    {{/each}}                                                          
+                                    </tbody>
+                                    
+                                </table>
+                            </div>
+                        </div>
+        </div>
+    </main>
+
+
+
+
+<script>
+          function confirmDelete(event) {
+    // Ngăn chặn hành vi mặc định của liên kết
+    event.preventDefault();
+
+    // Xác nhận hành động xóa
+    var confirmDelete = confirm('Bạn có chắc muốn xóa không?');
+
+    // Nếu người dùng chấp nhận xóa, thực hiện hành động xóa
+    if (confirmDelete) {
+        // Lấy ID của sản phẩm từ URL hoặc từ dữ liệu khác
+        var productId = "{{this._id}}"; // Lấy ID ở đây, có thể từ URL hoặc dữ liệu khác
+        
+        // Gửi yêu cầu xóa đến endpoint DELETE trên máy chủ
+        fetch('/products/' + productId, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            // Xử lý phản hồi từ máy chủ
+            if (response.ok) {
+                // Yêu cầu xóa đã thành công
+                // Reload trang hoặc thực hiện các hành động khác tùy ý
+                window.location.reload();
+            } else {
+                // Xử lý lỗi nếu có
+                console.error('Lỗi xóa sản phẩm!');
+            }
+        })
+        .catch(error => {
+            console.error('Lỗi kết nối đến máy chủ:', error);
+        });
+    }
+    // Nếu người dùng không chấp nhận xóa, không thực hiện hành động gì cả
+    else {
+        console.log('Người dùng đã hủy bỏ việc xóa sản phẩm.');
+    }
+}
+</script>
+
+
+

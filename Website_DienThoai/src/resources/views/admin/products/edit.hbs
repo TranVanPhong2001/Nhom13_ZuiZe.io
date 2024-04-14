@@ -1,0 +1,41 @@
+{{!< admin}}
+
+<div class="container">
+    <div class="mt-4">
+    <h3>
+        Cập nhật sản phẩm
+    </h3>
+
+    <form class="mt-4" method="POST" action="/admin/products/{{updatedDienThoai._id}}?_method=PUT" >
+        <div class="form-group">
+            <label for="name">Tên sản phẩm</label>
+            <input type="text" class="form-control"value="{{updatedDienThoai.name}}" id="name" name="name">           
+        </div>
+
+        <div class="form-group">
+            <label for="loai">Loại sản phẩm</label>
+            <input type="text" class="form-control" value="{{updatedDienThoai.loai}}" id="loai" name="loai">           
+        </div>
+
+        <div class="form-group">
+            <label for="mota">Mô tả sản phẩm</label>
+            <textarea class="form-control"  id="mota" name="mota">{{updatedDienThoai.mota}}  </textarea>         
+        </div>
+        <div class="form-group">
+            <label for="gia">Giá sản phẩm</label>
+            <input type="text" class="form-control" value="{{updatedDienThoai.gia}}" id="gia" name="gia">           
+        </div>
+        <div class="form-group">
+            <label for="gia2">Giá gốc</label>
+            <input type="text" class="form-control" value="{{updatedDienThoai.gia2}}" id="gia2" name="gia2">           
+        </div>
+
+        <div class="form-group">
+            <label for="img">Ảnh</label>
+            <input type="text" class="form-control" value="{{updatedDienThoai.img}}" id="img" name="img">           
+        </div>
+        
+    <button type="submit" class="btn btn-primary">Lưu lại</button>
+</form>
+    </div>
+</div>
